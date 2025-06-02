@@ -137,66 +137,126 @@
   background: #e5a23a;
 }
 
-/* Carousel */
+/* Carousel/Featured */
 .hb-carousel {
-  margin: 30px 0 10px 0;
+  margin: 30px 0 34px 0;
   background: var(--hb-card-bg);
   border-radius: 16px;
   box-shadow: 0 1px 7px rgba(139,92,42,0.09);
   padding: 28px 20px 22px 20px;
   width: 100%;
-  max-width: 645px;
+  max-width: 775px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* margin-top: 18px; */
 }
 
 .hb-carousel-header {
   font-size: 1.22rem;
   font-weight: bold;
-  margin-bottom: 12px;
+  margin-bottom: 18px;
   color: var(--hb-primary);
-  letter-spacing: 0.8px;
+  letter-spacing: 0.9px;
 }
 
-.hb-carousel-content {
+/* Homepage featured grid (replaces carousel content) */
+.hb-featured-grid {
   display: flex;
-  flex-direction: row;
-  gap: 16px;
+  gap: 26px;
+  width: 100%;
   justify-content: center;
-  margin-bottom: 10px;
+  flex-wrap: wrap;
 }
 
-.hb-carousel-slide {
-  background: var(--hb-secondary);
+.hb-feature-card {
+  background: linear-gradient(120deg, var(--hb-secondary) 75%, #fffdfa 120%);
   border-radius: 13px;
-  min-width: 170px;
-  padding: 22px 18px;
-  box-shadow: 0 1.2px 7px rgba(139,92,42,0.04);
+  min-width: 180px;
+  max-width: 225px;
+  min-height: 320px;
+  box-shadow: 0 1.2px 10px rgba(139,92,42,0.085);
   font-weight: 500;
-  letter-spacing: 0.1px;
   color: var(--hb-primary);
-}
-
-.hb-carousel-controls {
-  margin-top: 2px;
   display: flex;
-  gap: 6px;
-  justify-content: center;
+  flex-direction: column;
+  transition: box-shadow 0.13s, transform 0.12s;
+  cursor: pointer;
+  border: 2px solid transparent;
 }
 
-.hb-carousel-dot {
-  width: 9px;
-  height: 9px;
-  background: var(--hb-accent);
-  border-radius: 50%;
-  opacity: 0.6;
+.hb-feature-card:hover {
+  box-shadow: 0 4px 25px rgba(139,92,42,0.15);
+  border: 2px solid var(--hb-accent);
+  transform: translateY(-3px) scale(1.03);
+}
+
+.hb-feature-img {
+  width: 100%;
+  height: 110px;
+  border-top-left-radius: 13px;
+  border-top-right-radius: 13px;
+  background-size: cover;
+  background-position: center 40%;
+  background-repeat: no-repeat;
+  margin-bottom: 0.4rem;
+}
+
+.hb-feature-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 12px 14px 7px 14px;
+  gap: 10px;
+}
+
+.hb-feature-title {
+  font-size: 1.13rem;
+  font-weight: 700;
+  color: var(--hb-accent);
+  letter-spacing: 0.2px;
+}
+
+.hb-feature-story {
+  font-size: 0.99rem;
+  color: var(--hb-primary);
+  line-height: 1.38;
+  margin-bottom: 7px;
+}
+
+/* CTA Share Your Recipe Button */
+.hb-share-btn {
   display: inline-block;
+  background: linear-gradient(120deg, #eaa863 50%, var(--hb-accent) 100%);
+  color: #fffdfa;
+  font-weight: 600;
+  font-size: 1.15rem;
+  letter-spacing: 0.07em;
+  padding: 12px 32px 12px 22px;
+  border-radius: 28px;
+  box-shadow: 0 1.5px 10px rgba(217,119,6,0.07);
+  text-decoration: none;
+  border: none;
+  outline: none;
+  transition: background 0.16s, box-shadow 0.13s, transform 0.12s;
+  cursor: pointer;
+  margin-top: 7px;
 }
 
-.hb-carousel-dot:first-child {
-  opacity: 1;
-  box-shadow: 0 0 0 2px var(--hb-accent);
+.hb-share-btn:hover,
+.hb-share-btn:focus {
+  background: linear-gradient(120deg, #f1ae30 40%, #af6c04 100%);
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(217,119,6,0.13);
+  transform: translateY(-1px) scale(1.025);
+}
+
+/* Carousel controls -- hidden on featured grid */
+.hb-carousel-controls,
+.hb-carousel-dot,
+.hb-carousel-content,
+.hb-carousel-slide {
+  display: none !important;
 }
 
 /* Sections */

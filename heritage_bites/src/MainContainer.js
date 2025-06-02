@@ -73,10 +73,9 @@ function CuratedCollections() {
   );
 }
 
-// PUBLIC_INTERFACE
 /**
  * MainContainer is the primary story-rich homepage component for HeritageBites.
- * Contains the search bar, featured stories/recipes, latest submissions, and curated collections.
+ * Contains the intro/tagline, search bar, featured stories/recipes grid, and CTA for submitting a recipe.
  * Applies a warm, inviting, storytelling layout and theme.
  */
 function MainContainer() {
@@ -90,19 +89,52 @@ function MainContainer() {
         {/* Room for menu/profile/actions */}
       </nav>
       <main className="hb-main">
-        <section className="hb-hero">
-          <h1 className="hb-hero-title">
-            Rediscover Stories, <span className="accent">One Recipe at a Time</span>
-          </h1>
-          <div className="hb-hero-caption">
-            Share culinary memories, explore world traditions, and preserve food heritage through storytelling.
+        {/* Intro Section with tagline and CTA */}
+        <section className="hb-hero" style={{ gap: 18 }}>
+          <div>
+            <h1 className="hb-hero-title" style={{ marginBottom: 0 }}>
+              Where stories simmer<br />and heritage is served.
+            </h1>
+            <div className="hb-hero-caption" style={{ marginBottom: 12, marginTop: 7 }}>
+              Rediscover, share, and savor traditional or personal recipes woven with the stories that make them memorable.
+            </div>
           </div>
-          <SearchBar />
-          <FeaturedCarousel />
+          <div style={{ marginBottom: 4 }}>
+            <a href="/submit" className="hb-share-btn" tabIndex={0}>
+              <span role="img" aria-label="Share" style={{ marginRight: 6 }}>📝</span>
+              Share Your Recipe
+            </a>
+          </div>
         </section>
+
+        {/* Featured grid/carousel */}
+        <section>
+          <div className="hb-carousel">
+            <div className="hb-carousel-header">
+              Featured Stories &amp; Recipes
+            </div>
+            {/* Responsive Featured grid (3 columns for desktop, stacked for mobile) */}
+            <div className="hb-featured-grid">
+              {FEATURED_PLACEHOLDERS.map((item, i) => (
+                <div className="hb-feature-card" key={i}>
+                  <div className="hb-feature-img" style={{ backgroundImage: `url(${item.img})` }}>
+                    {/* Decorative overlay (optional) */}
+                  </div>
+                  <div className="hb-feature-content">
+                    <div className="hb-feature-title">{item.title}</div>
+                    <div className="hb-feature-story">{item.story}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Optionally show latest submissions/curated by reusing placeholders */}
         <div className="hb-home-sections">
-          <LatestSubmissions />
-          <CuratedCollections />
+          {/* Uncomment below if you want more sections */}
+          {/* <LatestSubmissions /> */}
+          {/* <CuratedCollections /> */}
         </div>
       </main>
       <footer className="hb-footer">
@@ -111,5 +143,23 @@ function MainContainer() {
     </div>
   );
 }
+
+const FEATURED_PLACEHOLDERS = [
+  {
+    title: "Grandma's Saffron Pilaf",
+    story: "A Sunday ritual, rich with fragrant spices and childhood laughter.",
+    img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=facearea&w=400&q=80"
+  },
+  {
+    title: "Spiced Heritage Stew",
+    story: "Hearty flavors that bring three generations together every autumn.",
+    img: "https://images.unsplash.com/photo-1519864600265-abb236498c1b?auto=format&fit=facearea&w=400&q=80"
+  },
+  {
+    title: "Festive Sweet Rolls",
+    story: "Baked during holidays, their aroma fills our home with memories.",
+    img: "https://images.unsplash.com/photo-1464306076886-debca5e8a6b0?auto=format&fit=facearea&w=400&q=80"
+  },
+];
 
 export default MainContainer;

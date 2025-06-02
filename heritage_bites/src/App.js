@@ -1,37 +1,14 @@
 import React from 'react';
+import MainContainer from './MainContainer';
 import './App.css';
 
+// PUBLIC_INTERFACE
+/**
+ * App is the entry point and root container of HeritageBites.
+ * It delegates to MainContainer for main layout.
+ */
 function App() {
-  return (
-    <div className="app">
-      <nav className="navbar">
-        <div className="container">
-          <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-            <div className="logo">
-              <span className="logo-symbol">*</span> KAVIA AI
-            </div>
-            <button className="btn">Template Button</button>
-          </div>
-        </div>
-      </nav>
-
-      <main>
-        <div className="container">
-          <div className="hero">
-            <div className="subtitle">AI Workflow Manager Template</div>
-            
-            <h1 className="title">heritage_bites</h1>
-            
-            <div className="description">
-              Start building your application.
-            </div>
-            
-            <button className="btn btn-large">Button</button>
-          </div>
-        </div>
-      </main>
-    </div>
-  );
+  return <MainContainer />;
 }
 
 export default App;
